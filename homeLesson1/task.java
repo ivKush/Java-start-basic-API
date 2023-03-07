@@ -8,13 +8,13 @@ public class task {
     public static void main(String[] args) {
         System.out.println(isSumBetween10And20(5, 4));
         System.out.println(isPositive(5));
-        printString("null", 3);
+        printString("null ", 3);
         System.out.println(isLeapYear(25));
         System.out.println(Arrays.toString(createArray(5, 4)));
 
         createBinArr();
         multMass();
-        marix(8);
+        marix(7);
     }
 
     /**
@@ -43,9 +43,10 @@ public class task {
 
     private static void printString(String source, int repeat) {
         // напечатать строку source repeat раз
-        for (int i = 0; i < repeat; i++) {
-            System.out.println(source);
-        }
+        // for (int i = 0; i < repeat; i++) {
+        //     System.out.println(source);
+        // }
+        System.out.println(source.repeat(repeat));
     }
 
     private static boolean isLeapYear(int year) {
