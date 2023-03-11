@@ -1,6 +1,6 @@
 package homeLesson1;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
 
 public class task {
@@ -115,7 +115,8 @@ public class task {
                 if (arr[k] == arr[k2] | arr[k2] == arr[arr.length - k - 1]) {
                     arr[k][k2] = 1;
                 }
-                System.out.printf("%d ", arr[k][k2]);
+                // System.out.printf("%d ", arr[k][k2]);
+                System.out.println(" " + arr[k][k2]);
             }
             System.out.println();
         }
