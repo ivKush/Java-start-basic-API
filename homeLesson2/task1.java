@@ -40,6 +40,7 @@ public class task1 {
             res.append(c2);
             if (res.length() != arg ) {
                 res.append(c1);
+                
             }
         }
         return res.toString();
