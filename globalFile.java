@@ -1,19 +1,11 @@
-package homeLesson2;
-
-import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.util.Scanner;
 
-public class task2 {
-
-    // Создать файл с названием file.txt. Если файл уже есть,
-    // то создавать не надо. Записать в него Слово "TEXT" 100 раз
-
-    public static void main(String[] args) throws IOException  {
+public class globalFile {
+    public static void main(String[] args) throws IOException {
         
         // BufferedOutputStream buf = new BufferedOutputStream(new FileOutputStream("homeLesson2/file.txt")); // Запись в файл через накопление в буфере 
         // FileOutputStream f = new FileOutputStream("homeLesson2/file.txt");
@@ -27,11 +19,5 @@ public class task2 {
             f.write(bytes);
         }
         f.close();
-        
-        // buf.write(bytes); // Запись в файл через накопление буфере
-        
-        // buf.close(); // Запись в файл через накопление в буфере
-        // buf.flush(); // Запись в файл через накопление в буфере
-
     }
 }
