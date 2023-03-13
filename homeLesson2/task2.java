@@ -15,6 +15,16 @@ public class task2 {
 
     public static void main(String[] args) throws IOException  {
         
+        //  Path dir = Path.of("homeLesson", "task1"); // Создание папки (директории) 
+        // Files.createDirectories(dir); // Создание папки (директории) 
+
+        // // Path f = Path.of("file.txt"); // Создание файла
+        // // Files.createFile(f); // Создание файла
+
+        // Files.delete(dir); // Удаление папки (директории), удаляет посленюю папку, 
+        //                     //так как метод Path будет ссылаться на последнюю папку.
+        //                        // Так же можно попобовать удалить файл.
+
         // BufferedOutputStream buf = new BufferedOutputStream(new FileOutputStream("homeLesson2/file.txt")); // Запись в файл через накопление в буфере 
         // FileOutputStream f = new FileOutputStream("homeLesson2/file.txt");
         FileOutputStream f = new FileOutputStream("homeLesson2/file2.txt");

@@ -1,9 +1,9 @@
-import java.lang.reflect.Array;
+package homeLesson3;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class globalFile {
+public class task2 {
     public static void main(String[] args) {
         
         // 2. Дан список ArrayList<String>. Удалить из него все строки, которые являются числами
@@ -22,8 +22,7 @@ public class globalFile {
                 Integer.parseInt(arr.get(i));
                 arr.remove(i--);
             }
-            catch (Exception e) {
-            }
+            catch (Exception e){}
         }
     }
 }
