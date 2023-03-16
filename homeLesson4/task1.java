@@ -1,7 +1,9 @@
+package homeLesson4;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class globalFile {
+public class task1 {
     // Реализовать консольное приложение, которое:
     // Принимает от пользователя строку вида text~num
     // 1. Нужно рассплитить строку по ~, сохранить text в связный список на позицию
