@@ -36,6 +36,7 @@ public class task1 {
                 Integer.parseInt(text.split("-")[1]);
             } catch (Exception e) {
                 System.out.println("Ошибка, проверьте вводимые данные!");
+                break;
             }
             String[] consData = text.split("-");
             int num = Integer.parseInt(consData[1]);
