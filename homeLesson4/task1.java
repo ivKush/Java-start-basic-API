@@ -34,11 +34,16 @@ public class task1 {
                     break;
                 }
                 Integer.parseInt(text.split("-")[1]);
+                func(text, listData);
             } catch (Exception e) {
                 System.out.println("Ошибка, проверьте вводимые данные!");
-                break;
+                // break;
             }
-            String[] consData = text.split("-");
+        }
+    }
+    
+    static void func(String text, ArrayList<String> listData) {
+        String[] consData = text.split("-");
             int num = Integer.parseInt(consData[1]);
             int localSize = num - listData.size();
             for (int i = 0; i <= localSize; i++) {
@@ -48,7 +53,6 @@ public class task1 {
                 System.out.println(listData.get(num));
             } else {
                 listData.set(num, consData[0]);
-            } 
-        }
+            }
     }
 }
