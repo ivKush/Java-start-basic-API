@@ -1,51 +1,148 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class globalFile {
-    // Реализовать консольное приложение, которое:
-    // Принимает от пользователя строку вида text~num
-    // 1. Нужно рассплитить строку по ~, сохранить text в связный список на позицию
-    // num.
-    // 2. Если введено print~num, выводит строку из позиции num в связном списке.
-    // 3. Если введено exit, завершаем программу
-
-    // Пример:
-    // string~4
-    // num~3
-    // print~3
-    // > num
-    // print~4
-    // > string
-    // my_value~1
-    // print~1
-    // > my_value
 
     public static void main(String[] args) {
-        System.out.println("Введите строку и номер под которым хотите её сохранить через дефис (-): ");
-        System.out.println("Для выхода введите: exit");
         Scanner sc = new Scanner(System.in);
-        ArrayList<String> listData = new ArrayList<>();
-        while (true) {
-            String text = sc.nextLine();
-            try {
-                if (text.equals("exit")) {
-                    break;
-                }
-                Integer.parseInt(text.split("-")[1]);
-            } catch (Exception e) {
-                System.out.println("Ошибка, проверьте вводимые данные!");
-            }
-            String[] consData = text.split("-");
-            int num = Integer.parseInt(consData[1]);
-            int localSize = num - listData.size();
-            for (int i = 0; i <= localSize; i++) {
-                listData.add(null);
-            }
-            if (consData[0].equals("print")) {
-                System.out.println(listData.get(num));
+        LinkedList<Object> list = new LinkedList<>();
+        list.add("Empty");
+        boolean isExit = false;
+        while (!isExit) {
+            String s = sc.nextLine();
+            if (s.equals("exit")) {
+                isExit = true;
+            } else if (getValue(s).equals("print")) {
+                int num = getIndex(s);
+                System.out.println(list.get(num));
             } else {
-                listData.set(num, consData[0]);
-            } 
+                createArrays(list, s);
+            }
+            System.out.println(list);
         }
+        sc.close();
     }
+
+    public static void createArrays(LinkedList<Object> list, String s) {
+        int num = getIndex(s);
+        String string = getValue(s);
+        for (int i = 0; i != num; i++) {
+            if (list.size() - 1 < num) {
+                list.add("Empty");
+            }
+        }
+        list.set(num, string);
+    }
+
+    public static String getValue(String s) {
+        String[] temp = s.split("~");
+        return temp[0];
+    }
+
+    public static Integer getIndex(String s) {
+        String[] temp = s.split("~");
+        int num = 0;
+        if (isNumber(temp[1])) {
+            num = Integer.parseInt(temp[1]);
+        }
+        return num;
+    }
+
+    public static boolean isNumber(String str) {
+        try {
+            Integer.parseInt(str);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+    // /**
+    // Реализовать консольное приложение, которое:
+    // Принимает от пользователя строку вида
+    // text~num
+    // Нужно рассплитить строку по ~, сохранить text в связный список на позицию
+    // num.
+    // Если введено print~num, выводит строку из позиции num в связном списке и
+    // удаляет её из списка.
+    // text~num (например, word~4)
+    // print~num (распечатать текст)
+
+    // word~1
+    // foo~5
+    // qwerty~10
+    // bar~5
+    // print~10 -> qwerty
+    // print~1 -> word
+    // print~2 -> пустая строка или исключение NoSuchElementException
+    // print~5 -> bar
+    // */
+    // public static void main(String[] args) {
+    // Scanner scan = new Scanner(System.in);
+    // ArrayList<String> textArr = new ArrayList<>();
+    // ItemArray itemArr = new globalFile().new ItemArray();
+    // do {
+    // itemArr = parseString(scan.nextLine(), "`");
+    // System.out.println(itemArr);
+    // if (itemArr.index != -1) {
+    // if (itemArr.text.equals("print")){
+    // boolean isOutOrEmpty = itemArr.index > textArr.size() ||
+    // textArr.get(itemArr.index).isEmpty();
+    // if (isOutOrEmpty) {
+    // System.out.println("\"\"");
+    // } else {
+    // System.out.println(textArr.get(itemArr.index));
+    // textArr.set(itemArr.index, "");
+    // }
+    // } else appendArrLst(textArr, itemArr);
+    // }
+
+    // } while (!itemArr.text.equals("exit"));
+    // scan.close();
+    // }
+
+    // /**
+    // * Класс имеет два поля для хранения индекса и значения элемента
+    // списка/массива
+    // */
+    // public class ItemArray {
+    // String text;
+    // int index;
+    // }
+
+    // /**
+    // * Расделяет строку str по разделителю sep и возвращает результат в виде
+    // экземпляра класса ItemArr.
+    // * (Правильно сформулировал?)
+    // * Если значение индекса item.index не является натуральным числом или нулем,
+    // то в item.index записывается -1.
+    // */
+    // public static ItemArray parseString(String str, String sep) {
+    // String[] arr = str.split(sep);
+    // ItemArray item = new globalFile().new ItemArray();
+    // try {
+    // item.index = Integer.parseInt(arr[1]);
+    // } catch (Exception e){
+    // item.index = -1;
+    // }
+    // if (item.index < 0) item.index = -1;
+    // item.text = arr[0];
+    // return item;
+    // }
+
+    // /**
+    // * Добавляет в список arr значение item.text по индексу item.index. Если длины
+    // списка не достаточно, добавляет элементы
+    // * заполненные пустыми строками.
+    // */
+    // public static void appendArrLst(ArrayList<String> arr, ItemArray item) {
+    // if (item.index >= arr.size()){
+    // for (int i = arr.size(); i <= item.index; i++) {
+    // arr.add("");
+    // }
+    // }
+    // arr.set(item.index, item.text);
+    // }
 }
