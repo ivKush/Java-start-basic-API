@@ -116,7 +116,7 @@ public class task {
                     arr[k][k2] = 1;
                 }
                 // System.out.printf("%d ", arr[k][k2]);
-                System.out.println(" " + arr[k][k2]);
+                System.out.print(" " + arr[k][k2]);
             }
             System.out.println();
         }
